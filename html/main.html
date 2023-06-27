@@ -3,15 +3,28 @@
 
 <head>
     <meta charset="utf-8">
-    <title>CustomPlayer</title>
-    <h3>CustomPlayer</h3>
+    <title>CustomVideoPlayer</title>
+    <h3>CustomVideoPlayer</h3>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
+<script>
+
+</script>
+
 <body>
-    <video controls width="1200" height="500">
-        <source src="../video/video.mp4" type="video/mp4">
-        <a href="../video/video.mp4">MP4</a>
-</video>
+    <video class= "screen"  src="../video/video.mp4" width="1200" height="500" poster="../png/start.png" id="video"></video>
+
+    <div id="movie-button">
+        <div class="movie-button">
+            <span class="movie-button-play">
+                <i class="fas fa-play-circle"></i>▶</span>
+            <span class="movie-button-pause">
+                <i class="fas fa-pause-circle"></i>■</span>
+            <input type="range" id="progress" min="0" max="100" value="0">
+            <span class="timestamp" id="timestamp">00:00</span>
+        </div>
+
+    </div>
 </body>
 </html>
