@@ -7,24 +7,20 @@
     <h3>CustomVideoPlayer</h3>
     <link rel="stylesheet" href="../css/main.css">
 </head>
-
-<script>
-
-</script>
-
 <body>
-    <video class= "screen"  src="../video/video.mp4" width="1200" height="500" poster="../png/start.png" id="video"></video>
+    <video id = "video" class= "screen" src="../video/video.mp4" width="1200" height="500" poster="../png/start.png"></video>
 
-    <div id="movie-button">
-        <div class="movie-button">
-            <span class="movie-button-play">
-                <i class="fas fa-play-circle"></i>▶</span>
-            <span class="movie-button-pause">
-                <i class="fas fa-pause-circle"></i>■</span>
+    <div id="moviefunctionitem">
+        <div class="movieclass">
+            <span btn>
+                <span id="playbtn"></i>▶</span>
+                <span id="pausebtn"></i>■</span>
+            </span>
             <input type="range" id="progress" min="0" max="100" value="0">
-            <span class="timestamp" id="timestamp">00:00</span>
+            <span id="timestamp">00:00</span>
         </div>
 
     </div>
 </body>
+<script src="../Javascript/main.js"></script>
 </html>
