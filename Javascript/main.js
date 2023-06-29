@@ -1,3 +1,7 @@
+//動画のサイズ変更を行うので変更前のサイズと変更後のサイズを格納
+const resizeVideoWidth = '90%';
+var beforeVideoWidth = '70%';
+
 //動画再生周りで必要な変数を用意
 var video = document.getElementById('video');
 var playbtn = document.getElementById('playbtn');
@@ -18,6 +22,7 @@ video.addEventListener('timeupdate',function()
 );
 video.addEventListener('click',function()
 {
+    //再生開始してなければ再生を行う
     if(video.paused)
     {
         video.play();
@@ -29,6 +34,24 @@ video.addEventListener('click',function()
     
 }
 );
+
+window.addEventListener('resize',function()
+{
+    //幅が一定のサイズになっているか確認
+    if(this.window.innerWidth < 800)
+    {
+        //一定のサイズになっていたら動画自体の幅を変更
+        this.window.document.getElementById('video').style.width = resizeVideoWidth;
+        this.window.document.getElementById('moviefunctionitem').style.width = resizeVideoWidth;
+    }
+    else
+    {
+        this.window.document.getElementById('video').style.width = beforeVideoWidth;
+        this.window.document.getElementById('moviefunctionitem').style.width = beforeVideoWidth;
+    }
+
+    
+});
 
 //再生時間を計算する
 function culcCurrentTime(time)
