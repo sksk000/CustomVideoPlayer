@@ -1,6 +1,8 @@
 //動画のサイズ変更を行うので変更前のサイズと変更後のサイズを格納
 const resizeVideoWidth = '90%';
-var beforeVideoWidth = '70%';
+const beforeVideoWidth = '70%';
+const maxInnerSize = 1000;
+
 
 //動画再生周りで必要な変数を用意
 var video = document.getElementById('video');
@@ -38,7 +40,7 @@ video.addEventListener('click',function()
 window.addEventListener('resize',function()
 {
     //幅が一定のサイズになっているか確認
-    if(this.window.innerWidth < 800)
+    if(this.window.innerWidth < maxInnerSize)
     {
         //一定のサイズになっていたら動画自体の幅を変更
         this.window.document.getElementById('video').style.width = resizeVideoWidth;
@@ -52,6 +54,13 @@ window.addEventListener('resize',function()
 
     
 });
+
+slider.addEventListener('change',function()
+{
+    //slider.valueは割合ではなくスライダーの位置
+    //全体の再生時間＊スライダーの割合(100の内のどこらへんか)
+    video.currentTime = video.duration * (slider.value / 100);
+})
 
 //再生時間を計算する
 function culcCurrentTime(time)
