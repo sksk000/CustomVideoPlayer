@@ -1,0 +1,26 @@
+#video{
+  width: 70%;
+  margin: auto;
+  display: block;
+}
+/*UI周りの設定(動画下)*/
+  #moviefunctionitem {
+    background-color: black;
+    width: 70%;
+    margin: auto;
+  }
+  #timestamp{
+    color: white;
+    margin: auto;
+    height: auto;
+    display: inline-block;
+  }
+  .form-control-range{
+    width: 100%;
+    max-width: 100%;
+    display:block;
+  }
+
+  h3{
+    text-align: center;
+  }
