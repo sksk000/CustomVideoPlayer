@@ -81,7 +81,3 @@ function culcCurrentTime(time)
 
     return ret;
 }
-
-
-
-
