@@ -15,7 +15,7 @@ https://vanillawebprojects.com/projects/custom-video-player/
   - 停止ボタン・動画内をクリックすると動画の停止を行えます。
 
 - シークバー機能
-  - シークバーを動かすと動かした地点から動画が開始されます。
+  - バーの任意の位置をクリックするとその箇所から再生が始まります。
 
 ## Github Pages URL
 - https://sksk000.github.io/CustomVideoPlayer/
