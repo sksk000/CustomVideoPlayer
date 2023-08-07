@@ -4,6 +4,9 @@
 ## デモ
 ![CustomVideoPlayer](https://github.com/sksk000/CustomVideoPlayer/assets/137740372/57115db0-2025-424d-a51e-312311f74151)
 
+## Github Pages URL
+- https://sksk000.github.io/CustomVideoPlayer/
+
 ## 模写　元ページ
 https://vanillawebprojects.com/projects/custom-video-player/
 
@@ -17,8 +20,6 @@ https://vanillawebprojects.com/projects/custom-video-player/
 - シークバー機能
   - バーの任意の位置をクリックするとその箇所から再生が始まります。
 
-## Github Pages URL
-- https://sksk000.github.io/CustomVideoPlayer/
 
 ## 使用言語・使用ライブラリ
 ### 言語
