@@ -5,6 +5,7 @@
 ![CustomVideoPlayer](https://github.com/sksk000/CustomVideoPlayer/assets/137740372/57115db0-2025-424d-a51e-312311f74151)
 
 ## Github Pages URL
+以下のURLにアクセスすると実装物を確認できます。
 - https://sksk000.github.io/CustomVideoPlayer/
 
 ## 模写　元ページ
