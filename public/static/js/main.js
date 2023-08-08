@@ -1,24 +1,34 @@
 //動画のサイズ変更を行うので変更前のサイズと変更後のサイズを格納
 const resizeVideoWidth = "90%";
-const beforeVideoWidth = "70%";
+const beforeVideoWidth = "63%";
 const maxInnerSize = 1000;
 
 //動画再生周りで必要な変数を用意
 var video = document.getElementById("video");
 var playbtn = document.getElementById("playbtn");
-var pausebtn = document.getElementById("pausebtn");
+var stopbtn = document.getElementById("stopbtn");
 var timestamp = document.getElementById("timestamp");
 var slider = document.getElementById("progress");
 var titletext = document.getElementById("titletext");
 var isFirstVideoClick = false;
 var moviefunctionitems = document.getElementById("moviefunctionitem");
+var playicon = document.getElementById("playicon");
 
 //各種イベントが呼ばれた際に呼ぶ関数を登録する
 playbtn.addEventListener("click", function () {
-  video.play();
+  if (video.paused) {
+    video.play();
+    playicon.classList.remove("fa-pause");
+    playicon.classList.add("fa-play");
+  } else {
+    video.pause();
+    playicon.classList.remove("fa-play");
+    playicon.classList.add("fa-pause");
+  }
 });
-pausebtn.addEventListener("click", function () {
+stopbtn.addEventListener("click", function () {
   video.pause();
+  video.currentTime = 0;
 });
 video.addEventListener("timeupdate", function () {
   //現在の再生時間をテキストとスライダーにわたす
@@ -33,15 +43,9 @@ video.addEventListener("click", function () {
 
   if (!isFirstVideoClick) {
     isFirstVideoClick = true;
-    if (window.innerWidth < maxInnerSize) {
-      //一定のサイズになっていたら動画自体の幅を変更
-      video.style.width = resizeVideoWidth;
-      moviefunctionitems.style.width = resizeVideoWidth;
-    } else {
-      video.style.width = beforeVideoWidth;
-      moviefunctionitems.style.width = beforeVideoWidth;
-    }
+    reizeMoviewindow();
   }
+
   //再生開始してなければ再生を行う
   if (video.paused) {
     video.play();
@@ -50,17 +54,7 @@ video.addEventListener("click", function () {
   }
 });
 
-window.addEventListener("resize", function () {
-  //幅が一定のサイズになっているか確認
-  if (this.window.innerWidth < maxInnerSize) {
-    //一定のサイズになっていたら動画自体の幅を変更
-    video.style.width = resizeVideoWidth;
-    moviefunctionitems.style.width = resizeVideoWidth;
-  } else {
-    video.style.width = beforeVideoWidth;
-    moviefunctionitems.style.width = beforeVideoWidth;
-  }
-});
+window.addEventListener("resize", reizeMoviewindow);
 
 slider.addEventListener("change", function () {
   //slider.valueは割合ではなくスライダーの位置
@@ -85,4 +79,16 @@ function culcCurrentTime(time) {
   }
 
   return ret;
+}
+
+function reizeMoviewindow() {
+  //幅が一定のサイズになっているか確認
+  if (window.innerWidth < maxInnerSize) {
+    //一定のサイズになっていたら動画自体の幅を変更
+    video.style.width = resizeVideoWidth;
+    moviefunctionitems.style.width = resizeVideoWidth;
+  } else {
+    video.style.width = beforeVideoWidth;
+    moviefunctionitems.style.width = beforeVideoWidth;
+  }
 }
